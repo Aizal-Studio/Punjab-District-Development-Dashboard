@@ -1,6 +1,6 @@
 streamlit
 pandas
 plotly
-reportlab
+reportlab==4.2.5
 Pillow
 openpyxl
