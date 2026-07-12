@@ -124,7 +124,12 @@ df = df.fillna(0)
 # ==============================
 # Sidebar
 # ==============================
-logo = Image.open("assets/logo.png")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+logo_path = BASE_DIR / "assets" / "logo.png"
+
+logo = Image.open(logo_path)
 
 st.sidebar.image(
     logo,
