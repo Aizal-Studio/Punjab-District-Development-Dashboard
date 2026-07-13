@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# from reports.report_generator import create_report
+from reports.report_generator import create_report
 
 
 # ==============================
