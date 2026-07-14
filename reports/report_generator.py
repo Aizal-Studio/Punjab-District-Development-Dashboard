@@ -13,9 +13,9 @@ from reportlab.platypus import (
     PageBreak
 )
 
-from reportlab.graphics.shapes import Drawing
-from reportlab.graphics.charts.barcharts import VerticalBarChart
-from reportlab.graphics.charts.textlabels import Label
+# from reportlab.graphics.shapes import Drawing
+# from reportlab.graphics.charts.barcharts import VerticalBarChart
+# from reportlab.graphics.charts.textlabels import Label
 
 import datetime
 import os
@@ -88,55 +88,7 @@ def create_table(data):
 # ==========================================
 
 def development_chart(selected):
-
-    drawing = Drawing(450,250)
-
-    chart = VerticalBarChart()
-
-    chart.x = 40
-    chart.y = 40
-
-    chart.width = 320
-    chart.height = 160
-
-    chart.data = [[
-
-        float(selected["LiteracyRate"]),
-        float(selected["HealthIndex"]),
-        float(selected["EducationIndex"]),
-        float(selected["InfrastructureIndex"]),
-        float(selected["DevelopmentScore"])
-
-    ]]
-
-    chart.categoryAxis.categoryNames = [
-
-        "Literacy",
-        "Health",
-        "Education",
-        "Infra",
-        "Score"
-
-    ]
-
-    chart.valueAxis.valueMin = 0
-    chart.valueAxis.valueMax = 100
-    chart.valueAxis.valueStep = 20
-
-    chart.bars[0].fillColor = PRIMARY
-
-    drawing.add(chart)
-
-    title = Label()
-
-    title.x = 180
-    title.y = 220
-
-    title.setText("Development Indicators")
-
-    drawing.add(title)
-
-    return drawing
+    return None
 # ==========================================
 # PDF REPORT
 # ==========================================
@@ -312,7 +264,15 @@ status of <b>{selected['District']}</b> is classified as
 
     story.append(Spacer(1, 0.25 * inch))
 
-    story.append(development_chart(selected))
+    story.append(Paragraph(
+    "Development chart is temporarily unavailable.",
+    normal_style
+))
+
+    story.append(Paragraph(
+    "Development chart is not available in the online version.",
+    normal_style
+))
 
     story.append(Spacer(1, 0.35 * inch))
 
